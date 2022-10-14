@@ -10,6 +10,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 @Table(name = "BILLS")
 public class Claim {
@@ -83,10 +87,14 @@ public class Claim {
 		INVOICE_NO = iNVOICE_NO;
 	}
 
+	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	public Date getINVOICE_DATE() {
 		return INVOICE_DATE;
 	}
 
+	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	public void setINVOICE_DATE(Date iNVOICE_DATE) {
 		INVOICE_DATE = iNVOICE_DATE;
 	}

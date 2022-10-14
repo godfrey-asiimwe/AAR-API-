@@ -1,7 +1,6 @@
 package com.API.Final.controller;
 
 import java.math.BigDecimal;
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,7 +17,7 @@ public class ClaimController {
 	ClaimService claimsService;
 	
 	@GetMapping("/{CLAIM_NO}/{AMOUNT_PAYABLE}")
-	public List<Claim> Claims(@PathVariable String CLAIM_NO, @PathVariable BigDecimal AMOUNT_PAYABLE) {
+	public Claim Claims(@PathVariable String CLAIM_NO, @PathVariable BigDecimal AMOUNT_PAYABLE) {
 		 return claimsService.getClaim(CLAIM_NO,AMOUNT_PAYABLE);
 	}
 	

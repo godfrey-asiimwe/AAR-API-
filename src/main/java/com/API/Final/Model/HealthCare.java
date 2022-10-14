@@ -9,6 +9,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 @Table(name = "BILLS")
 public class HealthCare {
@@ -21,6 +25,8 @@ public class HealthCare {
 	private Date INVOICE_DATE;
 	private String MEMBER_NO;
 	private String BATCH_NO;
+	private int month;
+	private int year;
 	
 	public HealthCare() {
 		
@@ -77,10 +83,14 @@ public class HealthCare {
 		INVOICE_NO = iNVOICE_NO;
 	}
 
+	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	public Date getINVOICE_DATE() {
 		return INVOICE_DATE;
 	}
 
+	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	public void setINVOICE_DATE(Date iNVOICE_DATE) {
 		INVOICE_DATE = iNVOICE_DATE;
 	}
@@ -99,6 +109,26 @@ public class HealthCare {
 
 	public void setBATCH_NO(String bATCH_NO) {
 		BATCH_NO = bATCH_NO;
+	}
+
+	@javax.persistence.Transient
+	public int getMonth() {
+		return month;
+	}
+
+	@javax.persistence.Transient
+	public void setMonth(int month) {
+		this.month = month;
+	}
+
+	@javax.persistence.Transient
+	public int getYear() {
+		return year;
+	}
+
+	@javax.persistence.Transient
+	public void setYear(int year) {
+		this.year = year;
 	}
 
 }
