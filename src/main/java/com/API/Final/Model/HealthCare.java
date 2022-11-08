@@ -1,6 +1,5 @@
 package com.API.Final.Model;
 
-import java.math.BigDecimal;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -20,7 +19,8 @@ public class HealthCare {
 	private int id;
 	private String CLAIM_NO;
 	private String PROVIDER;
-	private BigDecimal AMOUNT_PAYABLE;
+	private Double AMOUNT_PAYABLE;
+	private Double INVOICED_AMOUNT;
 	private String INVOICE_NO;
 	private Date INVOICE_DATE;
 	private String MEMBER_NO;
@@ -32,7 +32,7 @@ public class HealthCare {
 		
 	}
 
-	public HealthCare(int id,String CLAIM_NO,String PROVIDER,BigDecimal AMOUNT_PAYABLE,String INVOICE_NO,Date INVOICE_DATE) {
+	public HealthCare(int id,String CLAIM_NO,String PROVIDER,Double AMOUNT_PAYABLE,String INVOICE_NO,Date INVOICE_DATE) {
 		this.id=id;
 		this.CLAIM_NO=CLAIM_NO;
 		this.PROVIDER=PROVIDER;
@@ -67,11 +67,11 @@ public class HealthCare {
 		PROVIDER = pROVIDER;
 	}
 
-	public BigDecimal getAMOUNT_PAYABLE() {
+	public Double getAMOUNT_PAYABLE() {
 		return AMOUNT_PAYABLE;
 	}
 
-	public void setAMOUNT_PAYABLE(BigDecimal aMOUNT_PAYABLE) {
+	public void setAMOUNT_PAYABLE(Double aMOUNT_PAYABLE) {
 		AMOUNT_PAYABLE = aMOUNT_PAYABLE;
 	}
 
@@ -129,6 +129,14 @@ public class HealthCare {
 	@javax.persistence.Transient
 	public void setYear(int year) {
 		this.year = year;
+	}
+
+	public Double getINVOICED_AMOUNT() {
+		return INVOICED_AMOUNT;
+	}
+
+	public void setINVOICED_AMOUNT(Double iNVOICED_AMOUNT) {
+		INVOICED_AMOUNT = iNVOICED_AMOUNT;
 	}
 
 }

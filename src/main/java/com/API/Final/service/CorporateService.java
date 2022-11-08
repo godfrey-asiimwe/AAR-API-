@@ -17,4 +17,8 @@ public class CorporateService {
 	public Contract getContract(String  CORP_ID) {
         return corporateRepository.findByCORP_ID(CORP_ID);
     }
+	
+	public Contract getContractByMember(String member_no) {
+		return corporateRepository.findByMEMBER_NO(member_no);
+	}
 }

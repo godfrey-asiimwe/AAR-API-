@@ -23,7 +23,8 @@ public class Claim {
 	private int id;
 	private String CLAIM_NO;
 	private String PROVIDER;
-	private BigDecimal AMOUNT_PAYABLE;
+	private Double INVOICED_AMOUNT;
+	private Double AMOUNT_PAYABLE;
 	private String INVOICE_NO;
 	private Date INVOICE_DATE;
 	private String CHEQUE_NO;
@@ -32,7 +33,7 @@ public class Claim {
     public Claim() {
     }
 
-	public Claim(int id,String CLAIM_NO,String PROVIDER,BigDecimal AMOUNT_PAYABLE,String INVOICE_NO,Date INVOICE_DATE) {
+	public Claim(int id,String CLAIM_NO,String PROVIDER,Double AMOUNT_PAYABLE,String INVOICE_NO,Date INVOICE_DATE) {
 		this.id=id;
 		this.CLAIM_NO=CLAIM_NO;
 		this.PROVIDER=PROVIDER;
@@ -70,11 +71,11 @@ public class Claim {
 		PROVIDER = pROVIDER;
 	}
 
-	public BigDecimal getAMOUNT_PAYABLE() {
+	public Double getAMOUNT_PAYABLE() {
 		return AMOUNT_PAYABLE;
 	}
 
-	public void setAMOUNT_PAYABLE(BigDecimal aMOUNT_PAYABLE) {
+	public void setAMOUNT_PAYABLE(Double aMOUNT_PAYABLE) {
 		AMOUNT_PAYABLE = aMOUNT_PAYABLE;
 	}
 	
@@ -113,6 +114,14 @@ public class Claim {
 
 	public void setMEMBER_NO(String mEMBER_NO) {
 		MEMBER_NO = mEMBER_NO;
+	}
+
+	public Double getINVOICED_AMOUNT() {
+		return INVOICED_AMOUNT;
+	}
+
+	public void setINVOICED_AMOUNT(Double iNVOICED_AMOUNT) {
+		INVOICED_AMOUNT = iNVOICED_AMOUNT;
 	}
 	
 

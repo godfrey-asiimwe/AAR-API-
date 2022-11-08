@@ -18,6 +18,22 @@ public class CorporateController {
 	
 	@GetMapping("/{CORP_ID}")
 	public Contract contracts(@PathVariable String CORP_ID) {
+		CORP_ID=CORP_ID.replaceAll("@", "/");
+		if(corporateService.getContract(CORP_ID)==null) {
+			
+			return corporateService.getContractByMember(CORP_ID);
+			
+		}else {
+			
 		 return corporateService.getContract(CORP_ID);
+		 
+		}
+	}
+	
+	@GetMapping("/s/{member_no}")
+	public Contract ContractByMember(@PathVariable String member_no) {
+		member_no=member_no.replaceAll("@", "/");
+			return corporateService.getContractByMember(member_no);
+		
 	}
 }

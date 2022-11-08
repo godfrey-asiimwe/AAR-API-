@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.data.annotation.Transient;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -16,8 +17,10 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 @Table(name = "CORPORATE")
 public class Contract {
 	private int CORP_ID;
+	@Transient
 	private String CORPORATE;
 	private String POLICY_NO;
+	private String member_no;
 	private Date START_DATE;
 	private Date END_DATE;
 
@@ -25,8 +28,7 @@ public class Contract {
 		// TODO Auto-generated constructor stub
 	}
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
 	public int getCORP_ID() {
 		return CORP_ID;
 	}
@@ -35,15 +37,18 @@ public class Contract {
 		CORP_ID = cORP_ID;
 	}
 
+	@Transient
 	public String getCORPORATE() {
 		return CORPORATE;
 	}
 
+	@Transient
 	public void setCORPORATE(String cORPORATE) {
 		CORPORATE = cORPORATE;
 	}
 
-	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public String getPOLICY_NO() {
 		return POLICY_NO;
 	}
@@ -74,6 +79,14 @@ public class Contract {
 	@JsonFormat(pattern = "yyyy-MM-dd")
 	public void setEND_DATE(Date eND_DATE) {
 		END_DATE = eND_DATE;
+	}
+
+	public String getMember_no() {
+		return member_no;
+	}
+
+	public void setMember_no(String member_no) {
+		this.member_no = member_no;
 	}
 
 }
